@@ -3,7 +3,8 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%
 	List<Product> productList  = (List)request.getAttribute("productList");
-	//out.print("가져온 상품의 수는 "+productList.size());
+	out.print("가져온 상품의 수는 "+productList.size());
+	
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +36,6 @@
 			console.log(brand);
 			console.log(detail);
 			console.log(filename);
-
 			//퀵뷰창의 상품 정보에 출력
 			
 			//이미지

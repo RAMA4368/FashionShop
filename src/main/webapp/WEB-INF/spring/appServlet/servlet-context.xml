@@ -51,6 +51,8 @@
 	<!-- 메인 호출시 벨을 울리는 AOP 설정 -->
 	<beans:bean id="bell" class="com.koreait.fashionshop.model.common.Bell"/>
 	<beans:bean id="memberSessionCheckAspect" class="com.koreait.fashionshop.aop.MemberSessionCheckAspect"/>
+	<!-- 상위 카테고리를 가져오는 공통 코드 적용 AOP -->
+	<beans:bean id="globalDataAspect" class="com.koreait.fashionshop.aop.GlobalDataAspect"/>
 	
 	<aop:config>
 		<aop:aspect id="bellAspect" ref="bell">
@@ -61,8 +63,14 @@
 	
 	
 		<aop:aspect id="sessionCheckAspect" ref="memberSessionCheckAspect">
-			<aop:pointcut expression="execution(public * com.koreait.fashionshop.controller.payment..*(..))" id="sessionPointcut"/>
+			<aop:pointcut expression="execution(public * com.koreait.fashionshop.controller.payment..*(..))
+			||execution(public * com.koreait.fashionshop.controller.cs..*(..))" id="sessionPointcut"/>
 			<aop:around method="sessionCheck" pointcut-ref="sessionPointcut"/>
+		</aop:aspect>
+	
+		<aop:aspect id="categoryAspect" ref="globalDataAspect">
+			<aop:pointcut expression="execution(public * com.koreait.fashionshop.controller..*(..))" id="categoryPointcut"/>
+			<aop:around method="getGlobalData" pointcut-ref="categoryPointcut"/>
 		</aop:aspect>
 	
 	</aop:config>

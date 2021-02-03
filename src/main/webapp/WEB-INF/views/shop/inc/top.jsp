@@ -110,7 +110,7 @@
 
                                     <div class="collapse navbar-collapse align-items-start collapse" id="karl-navbar">
                                         <ul class="navbar-nav animated" id="nav">
-                                            <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                                            <li class="nav-item active"><a class="nav-link" href="/shop/main">Home</a></li>
                                             <li class="nav-item dropdown">
                                                 <a class="nav-link dropdown-toggle" href="#" id="karlDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</a>
                                                 <div class="dropdown-menu" aria-labelledby="karlDropdown">
@@ -123,7 +123,7 @@
                                             <li class="nav-item">
                                            		<a class="nav-link" href="/shop/cart/list"><span class="karl-level">3</span>Cart</a>
                                             </li>
-                                            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="/shop/cs/qna/list">Contact</a></li>
                                             <li class="nav-item"><a class="nav-link" href="/shop/member/registForm">SignUp</a></li>
                                             <li class="nav-item">
                                             

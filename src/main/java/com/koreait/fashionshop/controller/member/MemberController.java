@@ -34,17 +34,15 @@ public class MemberController {
 	
 	//회원가입폼 요청 
 	@RequestMapping(value="/shop/member/registForm", method=RequestMethod.GET)
-	public ModelAndView getRegistForm() {
-		List topList = topCategoryService.selectAll();
+	public ModelAndView getRegistForm(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("shop/member/signup");
-		mav.addObject("topList", topList); //담기
 		return mav;
 	}
 	
 	//회원가입 요청 처리 
 	@RequestMapping(value="/shop/member/regist", method=RequestMethod.POST, produces="text/html;charset=utf-8")
 	@ResponseBody
-	public String regist(Member member) {
+	public String regist(Member member,HttpServletRequest request) {
 		logger.debug("아이디 "+member.getUser_id());
 		logger.debug("이름 "+member.getName());
 		logger.debug("비번 "+member.getPassword());
@@ -66,11 +64,8 @@ public class MemberController {
 
 	//로그인 홈 요청 
 	@RequestMapping(value="/shop/member/loginForm", method=RequestMethod.GET)
-	public ModelAndView getLoginForm() {
-		List topList = topCategoryService.selectAll();
+	public ModelAndView getLoginForm(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("shop/member/signin");
-		mav.addObject("topList", topList); //담기
-		
 		return mav;
 	}
 	

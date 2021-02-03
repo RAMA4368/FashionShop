@@ -1,18 +1,24 @@
-/*
- * paging 처리�? ?��?��?��?��?�� ?��?�� ?��?��?�� ?��?��
- * */
+
 package com.koreait.fashionshop.model.common;
 
 import java.util.List;
 
+
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Pager {
-	private int totalRecord; //�? ?��코드 ?�� 
-	private int pageSize = 10; //?��?���??�� 보여�? ?��코드 ?�� 
+	private List list;
+	
+
+
+	private int totalRecord;  
+	private int pageSize = 10; 
 	private int totalPage;
-	private int blockSize=10; //블럭?�� 보여�? ?��?���? ?��
-	private int currentPage = 1; //?��?�� ?��?���?
+	private int blockSize=10; 
+	private int currentPage = 1;
 	private int firstPage;
 	private int lastPage;
 	private int curPos;
@@ -21,6 +27,7 @@ public class Pager {
 	
 	//?��?��?�� �??�� 초기?��
 	public void init(HttpServletRequest request, List list) {
+		this.list=list;
 		totalRecord = list.size();
 		totalPage = (int)Math.ceil((float)totalRecord/pageSize);
 		//?��?���?�? ?��?��?�� 경우?��, �? ?��?��?�� ?��?���?�? ??�?
@@ -121,5 +128,13 @@ public class Pager {
 
 	public void setNum(int num) {
 		this.num = num;
+	}
+	public List getList() {
+		return list;
+	}
+
+
+	public void setList(List list) {
+		this.list = list;
 	}
 }

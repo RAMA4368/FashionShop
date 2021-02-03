@@ -20,9 +20,6 @@ public class MainController {
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ModelAndView main(HttpServletRequest request,String name) {
 		ModelAndView mav = new ModelAndView();
-		
-		List topList = topCategoryService.selectAll();//카테고리들 가져오기
-		mav.addObject("topList", topList);
 		mav.setViewName("index"); //메인 페이지
 		
 		return mav;
